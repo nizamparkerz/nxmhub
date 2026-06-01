@@ -24,6 +24,6 @@ A minimalist, high-performance static repository index showcasing production dep
 ## 💻 About the Developer
 
 ```text
-DEV NAME  : Nizamudheen T. P // Nizam
+DEV NAME  : Nizam
 ROLE      : Mechanical Design Engineer & Hobby Vibe Coder
 MISSION   : Strip out the fluff, optimize performance, build to last.
