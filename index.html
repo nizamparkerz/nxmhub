@@ -4,163 +4,186 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NXMHub Projects</title>
+    <!-- Google Fonts: Inter for clean geometric sans-serif execution -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <!-- Remix Icon Pack for Minimalist UI Icons -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <style>
-        /* RESET & MINIMALIST BASE TYPE SYSTEM */
+        /* RESET & GEOMETRIC SYSTEM DEFINITIONS */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         body {
             background-color: #000000;
             color: #ffffff;
             line-height: 1.6;
-            padding: 0 20px;
+            padding: 0 24px;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 40px 0;
+            padding: 60px 0;
         }
 
-        /* HARDWARE LOGO AND STATUS HEADERS */
+        /* HEADER FRAMEWORK ARCHITECTURE */
         header {
-            border-bottom: 1px dashed #222222;
-            padding-bottom: 30px;
-            margin-bottom: 50px;
+            border: 1px solid #1a1a1a;
+            padding: 30px;
+            margin-bottom: 40px;
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
+            align-items: center;
             flex-wrap: wrap;
             gap: 20px;
+            background: #050505;
         }
 
         .logo-area h1 {
             font-size: 2rem;
             font-weight: 900;
             letter-spacing: -1px;
+            text-transform: uppercase;
         }
 
         .logo-area p {
             color: #666666;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
+            font-weight: 600;
             letter-spacing: 2px;
-            margin-top: 5px;
+            margin-top: 4px;
         }
 
         .status-tag {
-            font-size: 0.75rem;
-            border: 1px solid #ffffff;
-            padding: 4px 8px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: #ffffff;
+            color: #000000;
+            padding: 6px 12px;
             text-transform: uppercase;
             display: inline-flex;
             align-items: center;
             gap: 6px;
         }
 
-        /* SECTION SEPARATORS */
-        h2.section-title {
-            font-size: 1.1rem;
+        /* CARD AND SECTION TILES DESIGN */
+        .section-header {
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1a1a1a;
+        }
+
+        .section-header h2 {
+            font-size: 0.85rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 3px;
-            color: #ffffff;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            color: #666666;
         }
 
-        h2.section-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: #222222;
-        }
-
-        /* MAIN STRIPPED ECOSYSTEM LAYOUT */
+        /* TWO-COLUMN GRID FOR SYSTEM STACK DEPLOYMENTS */
         .projects-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            margin-bottom: 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 540px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .project-card {
-            border: 1px solid #222222;
+            border: 1px solid #1a1a1a;
             background: #050505;
-            padding: 30px;
-            border-radius: 0px;
-            transition: border-color 0.2s ease;
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: border-color 0.2s ease, background 0.2s ease;
         }
 
         .project-card:hover {
-            border-color: #555555;
+            border-color: #333333;
+            background: #0a0a0a;
         }
 
         .project-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
         }
 
         .project-type {
-            font-size: 0.7rem;
-            background: #ffffff;
-            color: #000000;
-            padding: 2px 6px;
-            font-weight: bold;
+            font-size: 0.65rem;
+            font-weight: 700;
+            border: 1px solid #333333;
+            color: #888888;
+            padding: 3px 8px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         .project-version {
-            font-size: 0.75rem;
-            color: #666666;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #444444;
+            letter-spacing: 0.5px;
         }
 
         .project-card h3 {
             font-size: 1.5rem;
+            font-weight: 700;
             margin-bottom: 12px;
             letter-spacing: -0.5px;
         }
 
         .project-card p {
-            color: #aeaeae;
+            color: #8e8e8e;
             font-size: 0.9rem;
-            margin-bottom: 25px;
-        }
-
-        /* NEW HIGH-CONTRAST IMAGE GALLERY LAYOUT */
-        .app-gallery {
-            margin-top: 20px;
+            font-weight: 400;
+            line-height: 1.6;
             margin-bottom: 30px;
         }
 
+        /* MINIMALIST HOVER RESPONSIVE GALLERY PLATFORM */
+        .app-gallery {
+            margin-bottom: 30px;
+            border-top: 1px solid #1a1a1a;
+            padding-top: 20px;
+        }
+
         .gallery-title {
-            font-size: 0.75rem;
-            color: #666666;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: #444444;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
             text-transform: uppercase;
         }
 
         .image-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
         }
 
         .image-frame {
-            border: 1px solid #222222;
+            border: 1px solid #1a1a1a;
             background: #000000;
-            padding: 6px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+            padding: 4px;
             transition: border-color 0.2s ease;
         }
 
@@ -172,30 +195,17 @@
             width: 100%;
             height: auto;
             display: block;
-            filter: grayscale(100%); /* Keeps images locked to black and white layout theme */
+            filter: grayscale(100%);
             transition: filter 0.2s ease;
         }
 
         .image-frame:hover img {
-            filter: grayscale(0%); /* Returns real look on hover */
+            filter: grayscale(0%);
         }
 
-        .frame-label {
-            font-size: 0.65rem;
-            color: #555555;
-            text-align: center;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border-top: 1px dashed #222222;
-            padding-top: 6px;
-        }
-
-        /* INTERACTIVE BUTTON CONTROLS */
+        /* SYSTEM ACTION TRIGGERS */
         .btn-group {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 20px;
+            margin-top: auto;
         }
 
         .primary-btn {
@@ -203,16 +213,17 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            padding: 12px 24px;
+            width: 100%;
+            padding: 14px;
             text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: bold;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             transition: all 0.2s ease;
             background-color: #ffffff;
             color: #000000;
             border: 1px solid #ffffff;
-            flex: 1;
-            min-width: 200px;
         }
 
         .primary-btn:hover {
@@ -221,56 +232,78 @@
             border-color: #ffffff;
         }
 
-        /* ABOUT DEVELOPMENT WRAPPER */
+        /* INTEGRATED PROFILE OVERVIEW BLOCK */
         .about-dev {
             background: #050505;
-            border: 1px solid #222222;
-            padding: 30px;
-            margin-bottom: 60px;
+            border: 1px solid #1a1a1a;
+            padding: 40px;
         }
 
         .dev-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #1a1a1a;
+            padding-bottom: 20px;
         }
 
         .dev-title h3 {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
+            font-weight: 800;
             letter-spacing: -0.5px;
         }
 
         .dev-subtitle {
             color: #666666;
             font-size: 0.75rem;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 3px;
+            letter-spacing: 1.5px;
+            margin-top: 4px;
+        }
+
+        .dev-icon {
+            font-size: 1.8rem;
+            color: #333333;
         }
 
         .about-p {
-            color: #aeaeae;
-            font-size: 0.9rem;
+            color: #8e8e8e;
+            font-size: 0.95rem;
             margin-bottom: 20px;
+            max-width: 800px;
         }
 
         .tech-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
+            margin-top: 30px;
         }
 
         .tag {
-            font-size: 0.75rem;
-            border: 1px solid #333333;
-            color: #888888;
-            padding: 4px 10px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            background: #000000;
+            border: 1px solid #1a1a1a;
+            color: #666666;
+            padding: 6px 12px;
+            transition: all 0.15s ease;
         }
 
-        /* FOOTER BRANDING MAPS */
+        .tag:hover {
+            color: #ffffff;
+            border-color: #444444;
+            background: #0a0a0a;
+        }
+
+        /* SYSTEM ENDPOINT NAVIGATION TERMINAL */
         footer {
-            border-top: 1px dashed #222222;
+            margin-top: 60px;
+            border-top: 1px solid #1a1a1a;
             padding-top: 30px;
             display: flex;
             justify-content: space-between;
@@ -281,26 +314,29 @@
 
         .footer-text {
             font-size: 0.75rem;
+            font-weight: 500;
             color: #444444;
         }
 
         .social-links {
             display: flex;
-            gap: 20px;
+            gap: 24px;
         }
 
         .social-links a {
-            color: #888888;
+            color: #666666;
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            transition: color 0.2s ease;
         }
 
         .social-links a:hover {
             color: #ffffff;
-            text-decoration: underline;
         }
     </style>
 </head>
@@ -308,92 +344,94 @@
 
     <div class="container">
         
-        <!-- TOP NAVIGATION HUB HEADER -->
+        <!-- CONTAINER CONTROL DASHBOARD HEADER -->
         <header>
             <div class="logo-area">
                 <h1>NXMHub Projects</h1>
-                <p>RAW // HARDWARE // CORE INTERFACES</p>
+                <p>RAW // MECHANICAL LOGIC // DIGITAL TOOLS</p>
             </div>
             <div class="status-tag">
-                <i class="ri-git-repository-commits-line"></i> ENGINE ACTIVE
+                <i class="ri-radar-line"></i> SYSTEM LIVE
             </div>
         </header>
 
-        <!-- APPLICATION GRID COMPONENT CONTAINER -->
+        <!-- MAIN UTILITY ARCHITECTURE BLOCKS -->
         <main>
-            <h2 class="section-title">DEPLOYED INFRASTRUCTURE</h2>
+            <div class="section-header">
+                <h2>Deployed Infrastructure</h2>
+            </div>
             
             <div class="projects-grid">
                 
-                <!-- PLATFORM DEPLOYMENT 1: AEGIS SOS UTILITY -->
+                <!-- UTILITY RENDER 1: AEGIS SOS PIPELINE -->
                 <div class="project-card">
-                    <div class="project-meta">
-                        <span class="project-type">CORE ANDROID UTILITY</span>
-                        <span class="project-version">v1.0.0</span>
-                    </div>
-                    <h3>Aegis SOS</h3>
-                    <p>
-                        A high-contrast safety ecosystem designed for tactical emergency survival. Aegis SOS steps away from baseline flashlight programs by featuring hardware-driven modulation arrays—including synchronized warning sounds, multi-frequency hazard patterns, custom strobe configuration controls, and an isolated battery telemetry stream monitoring real-time degradation and cell state.
-                    </p>
+                    <div>
+                        <div class="project-meta">
+                            <span class="project-type">CORE ANDROID UTILITY</span>
+                            <span class="project-version">v1.0.0</span>
+                        </div>
+                        <h3>Aegis SOS</h3>
+                        <p>
+                            A high-contrast safety ecosystem designed for tactical emergency survival. Aegis SOS steps away from baseline flashlight programs by featuring hardware-driven modulation arrays—including synchronized warning sounds, multi-frequency hazard patterns, custom strobe configuration controls, and an isolated battery telemetry stream monitoring real-time degradation and cell state.
+                        </p>
 
-                    <!-- CLEAN RAW VISUAL INTERFACE TILES -->
-                    <div class="app-gallery">
-                        <div class="gallery-title">// SYSTEM_INTERFACE_REPLICAS:</div>
-                        <div class="image-grid">
-                            
-                            <div class="image-frame">
-                                <img src="screenshots/main_ui.jpeg" alt="Main UI Layout">
-                                <div class="frame-label">MAIN_UI</div>
+                        <!-- IMGUR CLOUD STORAGE ASSET HOOKS -->
+                        <div class="app-gallery">
+                            <div class="gallery-title">// IMMUTABLE_STORAGE_ASSETS:</div>
+                            <div class="image-grid">
+                                <div class="image-frame">
+                                    <img src="https://i.imgur.com/4GcezEw.jpeg" alt="Aegis SOS Primary Interface Layout">
+                                </div>
+                                <div class="image-frame">
+                                    <img src="https://i.imgur.com/mKNRAHx.jpeg" alt="Aegis SOS Settings and Frequencies">
+                                </div>
+                                <div class="image-frame">
+                                    <img src="https://i.imgur.com/ZByICqc.jpeg" alt="Aegis SOS Theme Control Screen">
+                                </div>
                             </div>
-
-                            <div class="image-frame">
-                                <img src="screenshots/telemetry.jpeg" alt="Battery Telemetry">
-                                <div class="frame-label">TELEMETRY_STREAM</div>
-                            </div>
-
-                            <div class="image-frame">
-                                <img src="screenshots/settings.jpeg" alt="System Settings">
-                                <div class="frame-label">CONFIG_SETTINGS</div>
-                            </div>
-
                         </div>
                     </div>
 
                     <div class="btn-group">
                         <a href="https://www.mediafire.com/file/ung9bsd7mwztcmu/Aegis+SOS_1.0.apk/file" target="_blank" class="primary-btn">
-                            <i class="ri-download-cloud-2-line"></i> DOWNLOAD APK (MEDIAFIRE)
+                            <i class="ri-download-cloud-2-line"></i> DOWNLOAD APK
                         </a>
                     </div>
                 </div>
 
-                <!-- PLATFORM DEPLOYMENT 2: GRADE TO PERCENTAGE CALCULATION ENGINE -->
+                <!-- UTILITY RENDER 2: METRIC CONVERSION HUB -->
                 <div class="project-card">
-                    <div class="project-meta">
-                        <span class="project-type">PRODUCTION WEB ENGINE</span>
-                        <span class="project-version">LIVE INTERFACE</span>
+                    <div>
+                        <div class="project-meta">
+                            <span class="project-type">PRODUCTION WEB ENGINE</span>
+                            <span class="project-version">LIVE DEPLOYMENT</span>
+                        </div>
+                        <h3>Grade to Percentage Converter</h3>
+                        <p>
+                            A lightweight web calculator customized to process raw educational metrics. It provides instantaneous metric transformation pipelines, allowing users to parse and compute structural SSLC and Plus Two conversion ratios cleanly without layout bloat or analytic scripts tracking input data.
+                        </p>
                     </div>
-                    <h3>Grade to Percentage Converter</h3>
-                    <p>
-                        A lightweight web calculator customized to process raw educational metrics. It provides instantaneous metric transformation pipelines, allowing users to parse and compute structural SSLC and Plus Two conversion ratios cleanly without layout bloat or analytic scripts tracking input data.
-                    </p>
                     <div class="btn-group">
-                        <a href="https://gradetopercentage.netlify.app/" target="_blank" class="primary-btn" style="background: transparent; color: #ffffff; border-color: #222222;">
-                            <i class="ri-external-link-line"></i> LAUNCH CONVERSION HUB
+                        <a href="https://gradetopercentage.netlify.app/" target="_blank" class="primary-btn" style="background: transparent; color: #ffffff; border-color: #1a1a1a;">
+                            <i class="ri-external-link-line"></i> LAUNCH INTERFACE
                         </a>
                     </div>
                 </div>
 
             </div>
 
-            <!-- PROFILE & STRUCTURAL ENGINEERING ARCHITECTURE -->
-            <h2 class="section-title">ABOUT DEVELOPER</h2>
+            <!-- HARDWARE AND BUILD PROFILE ENGINE -->
+            <div class="section-header">
+                <h2>Developer Metrics</h2>
+            </div>
+            
             <div class="about-dev">
                 <div class="dev-header">
                     <div class="dev-title">
                         <h3>Nizam</h3>
                         <div class="dev-subtitle">Mechanical Design Engineer & Core Tinkerer</div>
                     </div>
-                    <i class="ri-cpu-line" style="font-size: 2rem; color: #222222;"></i>
+                    <div class="dev-icon"><i class="ri-command-line"></i></div>
                 </div>
                 
                 <p class="about-p">
@@ -414,10 +452,10 @@
             </div>
         </main>
 
-        <!-- FOOTER MAP MATRIX -->
+        <!-- HARDWARE NAVIGATION MATRIX FOOTER -->
         <footer>
             <div class="footer-text">
-                &copy; 2026 NXMHub. All system resources optimized.
+                &copy; 2026 NXMHub. All platform layouts engineered.
             </div>
             <div class="social-links">
                 <a href="https://instagram.com/nixam___" target="_blank">
