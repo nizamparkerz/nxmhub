@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NXMHub Projects</title>
+    <!-- Remix Icon Pack for Minimalist UI Icons -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <style>
         /* RESET & MINIMALIST BASE TYPE SYSTEM */
@@ -133,6 +134,62 @@
             margin-bottom: 25px;
         }
 
+        /* NEW HIGH-CONTRAST IMAGE GALLERY LAYOUT */
+        .app-gallery {
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .gallery-title {
+            font-size: 0.75rem;
+            color: #666666;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .image-frame {
+            border: 1px solid #222222;
+            background: #000000;
+            padding: 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: border-color 0.2s ease;
+        }
+
+        .image-frame:hover {
+            border-color: #ffffff;
+        }
+
+        .image-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: grayscale(100%); /* Keeps images locked to black and white layout theme */
+            transition: filter 0.2s ease;
+        }
+
+        .image-frame:hover img {
+            filter: grayscale(0%); /* Returns real look on hover */
+        }
+
+        .frame-label {
+            font-size: 0.65rem;
+            color: #555555;
+            text-align: center;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-top: 1px dashed #222222;
+            padding-top: 6px;
+        }
+
         /* INTERACTIVE BUTTON CONTROLS */
         .btn-group {
             display: flex;
@@ -251,6 +308,7 @@
 
     <div class="container">
         
+        <!-- TOP NAVIGATION HUB HEADER -->
         <header>
             <div class="logo-area">
                 <h1>NXMHub Projects</h1>
@@ -261,11 +319,13 @@
             </div>
         </header>
 
+        <!-- APPLICATION GRID COMPONENT CONTAINER -->
         <main>
             <h2 class="section-title">DEPLOYED INFRASTRUCTURE</h2>
             
             <div class="projects-grid">
                 
+                <!-- PLATFORM DEPLOYMENT 1: AEGIS SOS UTILITY -->
                 <div class="project-card">
                     <div class="project-meta">
                         <span class="project-type">CORE ANDROID UTILITY</span>
@@ -276,12 +336,28 @@
                         A high-contrast safety ecosystem designed for tactical emergency survival. Aegis SOS steps away from baseline flashlight programs by featuring hardware-driven modulation arrays—including synchronized warning sounds, multi-frequency hazard patterns, custom strobe configuration controls, and an isolated battery telemetry stream monitoring real-time degradation and cell state.
                     </p>
 
-                    <p style="font-size: 0.8rem; color: #555555; margin-bottom: 25px; letter-spacing: 1px;">
-                        INTERFACE TARGETS: 
-                        <a href="screenshots/main_ui.jpeg" target="_blank" style="color: #ffffff; text-decoration: underline; margin-right: 12px;">[MAIN_INTERFACE]</a>
-                        <a href="screenshots/telemetry.jpeg" target="_blank" style="color: #ffffff; text-decoration: underline; margin-right: 12px;">[BATTERY_TELEMETRY]</a>
-                        <a href="screenshots/settings.jpeg" target="_blank" style="color: #ffffff; text-decoration: underline;">[SYSTEM_SETTINGS]</a>
-                    </p>
+                    <!-- CLEAN RAW VISUAL INTERFACE TILES -->
+                    <div class="app-gallery">
+                        <div class="gallery-title">// SYSTEM_INTERFACE_REPLICAS:</div>
+                        <div class="image-grid">
+                            
+                            <div class="image-frame">
+                                <img src="screenshots/main_ui.jpeg" alt="Main UI Layout">
+                                <div class="frame-label">MAIN_UI</div>
+                            </div>
+
+                            <div class="image-frame">
+                                <img src="screenshots/telemetry.jpeg" alt="Battery Telemetry">
+                                <div class="frame-label">TELEMETRY_STREAM</div>
+                            </div>
+
+                            <div class="image-frame">
+                                <img src="screenshots/settings.jpeg" alt="System Settings">
+                                <div class="frame-label">CONFIG_SETTINGS</div>
+                            </div>
+
+                        </div>
+                    </div>
 
                     <div class="btn-group">
                         <a href="https://www.mediafire.com/file/ung9bsd7mwztcmu/Aegis+SOS_1.0.apk/file" target="_blank" class="primary-btn">
@@ -290,6 +366,7 @@
                     </div>
                 </div>
 
+                <!-- PLATFORM DEPLOYMENT 2: GRADE TO PERCENTAGE CALCULATION ENGINE -->
                 <div class="project-card">
                     <div class="project-meta">
                         <span class="project-type">PRODUCTION WEB ENGINE</span>
@@ -308,6 +385,7 @@
 
             </div>
 
+            <!-- PROFILE & STRUCTURAL ENGINEERING ARCHITECTURE -->
             <h2 class="section-title">ABOUT DEVELOPER</h2>
             <div class="about-dev">
                 <div class="dev-header">
@@ -336,6 +414,7 @@
             </div>
         </main>
 
+        <!-- FOOTER MAP MATRIX -->
         <footer>
             <div class="footer-text">
                 &copy; 2026 NXMHub. All system resources optimized.
